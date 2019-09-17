@@ -23,7 +23,7 @@ GPIO.setup("P8_8", GPIO.OUT)
 GPIO.setup("P8_9", GPIO.OUT)
 GPIO.setup("P8_10", GPIO.OUT)
 
-
+reset = False
 
 def update(status):
 
@@ -40,7 +40,7 @@ def update(status):
 		GPIO.output(P8_10, GPIO.HIGH) = 1
 	
 	if status == reset:
-		GPIO.output(P8_10, GPIO.HIGH) = 1
+		reset = True
 
 	else  
 		GPIO.output(P8_7, GPIO.LOW) = 1
@@ -48,10 +48,12 @@ def update(status):
 		GPIO.output(P8_9, GPIO.LOW) = 1
 		GPIO.output(P8_10, GPIO.LOW) = 1
 
-GPIO.add_event_detect(up, GPIO.RISING, callback=update)
-GPIO.add_event_detect(down, GPIO.RISING, callback=update)
-GPIO.add_event_detect(right, GPIO.RISING, callback=update)
-GPIO.add_event_detect(left, GPIO.RISING, callback=update)
-GPIO.add_event_detect(reset, GPIO.RISING, callback=update)
+while !reset:
+	update()
+	GPIO.add_event_detect(up, GPIO.RISING, callback=update)
+	GPIO.add_event_detect(down, GPIO.RISING, callback=update)
+	GPIO.add_event_detect(right, GPIO.RISING, callback=update)
+	GPIO.add_event_detect(left, GPIO.RISING, callback=update)
+	GPIO.add_event_detect(reset, GPIO.RISING, callback=update)
 
 
