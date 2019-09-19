@@ -19,3 +19,10 @@ Options
 
 I have completed all tasks
 The etch-A-Sketch is run using   ./etchasketch.py --size *input size here
+
+## Prof. Yoder's comments
+
+The 'scope measurements are missing.
+Let me know when you have them.
+
+Grade:  5/10
