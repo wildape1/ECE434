@@ -9,3 +9,10 @@ Use the push button built into the rotary encoder to clear the screen
 Run the program by simply running ./etchasketch
 
 =======================================================================
+
+
+## Prof. Yoder's comments
+
+Looks good.  Please note the temp sensor too.
+
+Grade:  8/10
