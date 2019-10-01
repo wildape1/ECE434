@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
 
     printf("GPIO1 configuration: %X\n", reg);
 
-    reg &= ~USR3;       // Set USR3 bit to 0
+    reg0 &= ~USR3;       // Set USR3 bit to 0
 
     *gpio0_oe_addr = reg0;
     *gpio1_oe_addr = reg1;
