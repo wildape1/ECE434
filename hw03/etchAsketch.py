@@ -48,7 +48,7 @@ ycur = 0
 row = 0
 while True:
 
-	time.sleep(0.1)
+	time.sleep(0.2)
 	if VEncoder.position > 0:
 		ycur += 1
 		if ycur > 7:
