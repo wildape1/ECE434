@@ -1,0 +1,59 @@
+togglegpio.sh	(Shell commands)	
+Min V	 						-0.03 V	
+Max V	 						3.32 V	
+Period							238ms	
+How close to 200ms?				38ms	
+Why do they differ?				The bash script is modifying the files to change the GPIO pins which adds a lot of overhead which takes more time
+CPU Usage						15.80%	
+How stable is period?			Fairly stable, small variation (~5%)
+Vi period stability?			The period stability goes way down when vi is open
+Changing bash to sh				The period decreases since sh is a lower level shell so there is less overhead
+cleaning up togglegpio.sh		Cleaning up some of the lines significantly decreased the period
+Shortest period	36ms	
+
+Argument						Period	    			CPU Usage (%)
+	0.1	        				236ms	    			4.9%
+    0.01                        57ms                    13.2%
+    0.001                       39ms                    20.9%
+    0.0001                      36ms                    21.2%
+    0.00001                     36ms                    21.7%
+		
+		
+		
+togglegpio.py	(Python)	
+Min Voltage (V)					-0.03 V
+Max Voltage (V)					3.32 V	
+Period							201.4ms					
+How close to 200ms?				1.4ms	
+Why do they differ?				Python libraries have much less over-head but still a small amount
+CPU Usage						2.70%	
+How stable is period?			The period stability seems less than the stability from the .sh file
+Vi period stability?			The period stability stays constant
+Shortest period	385us	
+
+Argument						Period	    			CPU Usage (%)
+	0.1	        				201.4ms	    			2.7%
+	0.01                        21ms                    5.2%
+    0.001                       3.3ms                   29.9%
+    0.0001                      570us                   53.7%
+    0.00001                     385us                   90.9%
+		
+		
+		
+togglegpio.c	(C)	
+Min Voltage (V)					-0.03 V
+Max Voltage (V)					3.32	
+Period							201.0ms	
+How close to 200ms?				1.0ms	
+Why do they differ?				C is a lower level langauge but still has some over-head
+CPU Usage						2.60%	
+How stable is period?			Fairly stable, small variation (~5%)
+Vi period stability?			The period becomes much less stable
+Shortest period					326us	
+
+Argument						Period	    			CPU Usage (%)
+	0.1	        				201ms	    			 2.6%
+	0.01                        20.5ms                   2.9%
+    0.001                       2.01ms                   3.0%
+    0.0001                      326us                    6.5%
+    0.00001                     327us                    13.5%
