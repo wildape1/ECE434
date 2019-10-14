@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
-#include <fcntl.h> 
+#include <fcntl.h>
 #include <signal.h>    // Defines signal-handling functions (i.e. trap Ctrl-C)
 #include "beaglebone_gpio.h"
 
@@ -22,7 +22,7 @@ void signal_handler(int sig);
 // Callback called when SIGINT is sent to the process (Ctrl-C)
 void signal_handler(int sig)
 {
-	printf( "\nCtrl-C pressed, cleaning up and exiting...\n" );
+	//printf( "\nCtrl-C pressed, cleaning up and exiting...\n" );
 	keepgoing = 0;
 }
 
@@ -40,15 +40,15 @@ int main(int argc, char *argv[]) {
     volatile unsigned int *gpio1_setdataout_addr;
     volatile unsigned int *gpio1_cleardataout_addr;
     unsigned int reg1;
-    
+
     // Set the signal callback for Ctrl-C
-	signal(SIGINT, signal_handler);
+    signal(SIGINT, signal_handler);
 
     int fd = open("/dev/mem", O_RDWR);
 
-    printf("Mapping %X - %X (size: %X)\n", GPIO1_START_ADDR, GPIO1_END_ADDR, GPIO1_SIZE);
+    printf("Mapping %X - %X (size: %X)\n", GPIO0_START_ADDR, GPIO0_END_ADDR, GPIO0_SIZE);
 
-    gpio0_addr = mmap(0, GPIO0_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO1_START_ADDR);
+    gpio0_addr = mmap(0, GPIO0_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO0_START_ADDR);
     gpio1_addr = mmap(0, GPIO1_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO1_START_ADDR);
 
     gpio0_oe_addr           = gpio0_addr + GPIO_OE;
@@ -62,12 +62,12 @@ int main(int argc, char *argv[]) {
     gpio1_cleardataout_addr = gpio1_addr + GPIO_CLEARDATAOUT;
 
     if(gpio0_addr == MAP_FAILED) {
-        printf("Unable to map GPIO\n");
+        printf("Unable to map GPIO_0\n");
         exit(1);
     }
 
     if(gpio1_addr == MAP_FAILED) {
-        printf("Unable to map GPIO\n");
+        printf("Unable to map GPIO_1\n");
         exit(1);
     }
 
@@ -76,33 +76,31 @@ int main(int argc, char *argv[]) {
     reg0 = *gpio0_oe_addr;
     reg1 = *gpio1_oe_addr;
 
-    printf("GPIO1 configuration: %X\n", reg);
+    // printf("GPIO1 configuration: %X\n", reg);
 
-    reg0 &= ~USR3;       // Set USR3 bit to 0
-
+    reg1 &= ~(LED1|LED2);
+    reg0 |= BTN1;
+    reg1 |= BTN2;
     *gpio0_oe_addr = reg0;
     *gpio1_oe_addr = reg1;
 
-    printf("GPIO1 configuration: %X\n", reg);
+    while(keepgoing) {
 
-    printf("Start blinking LED USR3\n");
-    while(keepgoing) { 
-	
-	if(){
-		*gpio0_setdataout_addr = USR3;
+	if(*gpio0_datain & BTN1){
+		*gpio1_setdataout_addr |= LED2;
 	}
 	else{
-		*gpio0_cleardataout_addr = USR3;
+		*gpio1_cleardataout_addr &= ~LED2;
 	}
 
-	if(){
-		*gpio1_setdataout_addr = USR3;
+	if(*gpio1_datain & BTN2){
+		*gpio1_setdataout_addr |= LED1;
 	}
 	else{
-		*gpio1_cleardataout_addr = USR3;
+		*gpio1_cleardataout_addr &= ~LED1;
 	}
-        
-        
+
+
     }
 
     munmap((void *)gpio0_addr, GPIO0_SIZE);

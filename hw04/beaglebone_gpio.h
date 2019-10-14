@@ -24,7 +24,9 @@
 #define GPIO_07  (1<<7)
 #define GPIO_60  (1<<28)
 #define GPIO_45  (1<<11)
-#define GPIO_44  (1<<12)
-#define GPIO_47  (1<<14)
+#define BTN1  (1<<23) //pin 13 on P8
+#define BTN2  (1<<14) //pin 16
+#define LED2  (1<<13) //pin 11
+#define LED1  (1<<12) //pin 12
 #define GPIO_46  (1<<15)
 #endif
