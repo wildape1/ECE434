@@ -1,0 +1,1 @@
+cmd_/home/debian/ECE434/hw05/exploringBB/chp16/gpio/gpio_test.ko := ld -EL -r  -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds  --build-id  -o /home/debian/ECE434/hw05/exploringBB/chp16/gpio/gpio_test.ko /home/debian/ECE434/hw05/exploringBB/chp16/gpio/gpio_test.o /home/debian/ECE434/hw05/exploringBB/chp16/gpio/gpio_test.mod.o ;  true
