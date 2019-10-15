@@ -31,4 +31,26 @@ Output on bone:
     This address (0xbe903c48) is in our stack frame 
     This address (0x465010) is in our bss section 
     This address (0x465008) is in our data section
+## Kernel Modules
+### Part 1
+Files for this section are under the hello directory.  Run the following commands to ensure the module is working.
+
+    make
+    sudo insmod hello.ko
+    sudo rmmod hello.ko
+    dmesg -H | tail -2
+### Part 2
+Files for this section are under the ebbchar directory.  Run the following commands to ensure the module is working.
+
+    make
+    sudo insmod ebbchar.ko
+    dmesg -H | tail -4
+    ./test
+    dmesg -H | tail -8
+### Part 3
+Files for this section are under the gpio directory.  Run the following commands to ensure the module is working.
+
+    make
+    sudo insmod gpio_test.ko
+    tail -f /var/log/kern.log
 
