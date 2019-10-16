@@ -10,7 +10,7 @@
 
 3. **What is mixed criticality?**  A way of running differnet types of tasks.  Allows you to run some non-time critical stuff while running real time requirements and latency bounded stuff.
 
-4. **How can drivers misbehave?**  They can misbehave when using the shared driver stack methods.
+4. **How can drivers misbehave?**  They can misbehave when using the shared driver stack methods. 
 
 5. **What is Δ in Figure 1?**  Shows the time difference between the interrupt being called and the application executes.
 
@@ -24,6 +24,6 @@
 
 10. **What is keeping the External event in Figure 3 from starting?**  Its waiting for another interrupt that was previously triggered to finish executing.
 
-11. **Why can the External event in Figure 4 start sooner?** They used "shims" of an event to wake up the thread which would happen even if something else is running at the same time.
+11. **Why can the External event in Figure 4 start sooner?** They used "shims" of an event to wake up the thread which would happen even if something else is running at the same time. Then it can prioritize the most important events.
 
 ## PREEMPT_RT
