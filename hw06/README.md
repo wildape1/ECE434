@@ -22,10 +22,16 @@
 
 9. **What is mainline?**  Its a non-real time way of handling interrupts.
 
-10. **What is keeping the External event in Figure 3 from starting?**  Its waiting for another interrupt that was previously triggered to finish executing.
+10. **What is keeping the External event in Figure 3 from starting?**  It's waiting for another interrupt that was previously triggered to finish executing.
 
 11. **Why can the External event in Figure 4 start sooner?** They used "shims" of an event to wake up the thread which would happen even if something else is running at the same time. Then it can prioritize the most important events.
 
 ## PREEMPT_RT
 
 Followed the instructions in exercise 36 to generate the histogram of the rt vs non rt kernel handling executions on the bone.  The plot is call out.png
+
+## Prof. Yoder's comments
+
+Looks good. Nice plot, but I was looking for two plots.  One under a load and one not.
+
+Grade:  9/10

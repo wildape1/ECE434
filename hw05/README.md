@@ -54,3 +54,12 @@ Files for this section are under the gpio directory.  Run the following commands
     sudo insmod gpio_test.ko
     tail -f /var/log/kern.log
 
+
+## Prof. Yoder's comments
+
+I wonder why the 4.19 kernel didn't work?
+What was the output of your dmesg's?
+I don't see that you moved Part 3 to P9_15 to P9_16.
+
+Late: -1
+Grade:  7/10
