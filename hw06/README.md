@@ -27,3 +27,5 @@
 11. **Why can the External event in Figure 4 start sooner?** They used "shims" of an event to wake up the thread which would happen even if something else is running at the same time. Then it can prioritize the most important events.
 
 ## PREEMPT_RT
+
+Followed the instructions in exercise 36 to generate the histogram of the rt vs non rt kernel handling executions on the bone.  The plot is call out.png
