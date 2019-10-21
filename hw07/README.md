@@ -7,6 +7,7 @@ Lee and I created our wiki page for our project.  We have not had time to make a
 ## Blynk
 
 The example code given "leds.js" was modified to also control the brightness of an led using a slider.  The program can now control the USR3 Led via the app as well as control a virtual LED on the app from a physical button, as well as control the brightness of an LED via a slider.
+
 The function is run using: 
 
     ./leds.js 
