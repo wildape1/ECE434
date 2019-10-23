@@ -16,3 +16,7 @@ The blynk librarys can be installed using
 
     sudo npm install -g -unsafe-perm blynk-library
     
+## Prof. Yoder's comments
+Looks good.  I assume you demo'ed, but I don't have a record of it.
+
+Grade:  10/10
