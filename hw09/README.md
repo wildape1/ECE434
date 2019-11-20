@@ -9,3 +9,10 @@ log_temp_to_thingspeak.js - checks temperature once a second and logs to thingsp
 Not started...
 
 Grade:  0/10
+
+## Prof. Yoder's new comments
+
+What's the URL to your sheet?
+
+Late: -1
+Grade:  8/10

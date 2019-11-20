@@ -31,3 +31,11 @@ Removing usleep call, the delay dropped to ~23 microseconds, however program wou
 Need to start
 
 Grade:  0/10
+
+## Prof. Yoder's new comments
+
+OK
+
+Late: -2
+
+Grade:  8/10

@@ -13,3 +13,10 @@ Hw08
 Not started...
 
 Grade:  0/10
+
+## Prof. Yoder's new comments
+
+2.6: 42kHz seems too slow.  What delay were you using?
+
+Late: -1
+Grade:  9/10
