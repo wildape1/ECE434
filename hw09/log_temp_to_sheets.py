@@ -39,9 +39,11 @@ def log_to_sheets(temp):
         print('Not updated')
 
 system("./setup.sh")
+
 i2cbus = smbus.SMBus(2)
 temp_addr = 0x48
 bus.write_byte_data(temp_addr, 1, 0x60)
+
 temp_old = None
 while True:
     temp = bus.read_byte_data(address, 0)
