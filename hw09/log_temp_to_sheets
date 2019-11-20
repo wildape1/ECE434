@@ -7,15 +7,11 @@ from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 import time, sys
-
-# If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
-
-# The ID and range of a sample spreadsheet.
-SPREADSHEET_ID = 'BdrytnF5lPkVf8wl0qBTlypdmz2s07RfQ931bIhJ3B3d'
+SPREADSHEET_ID = '1yZNZWKyNDJdCimABMJbLIuXq4KPTuJycqUCnemzZI4d'
 RANGE_NAME = 'A2'
 
-def log_to_google_sheets(temp):
+def log_to_sheets(temp):
     store = file.Storage('tokenPython.json')
     creds = store.get()
     if not creds or creds.invalid:
@@ -42,8 +38,6 @@ def log_to_google_sheets(temp):
     if not updates:
         print('Not updated')
 
-
-
 system("./setup.sh")
 i2cbus = smbus.SMBus(2)
 temp_addr = 0x48
@@ -54,7 +48,7 @@ while True:
     temp = temp*1.8 + 32
 
     if(temp != temp_old):
-        log_to_google_sheets(temp1)
+        log_to_sheets(temp1)
         temp_old = temp
     else:
         time.sleep(1)
