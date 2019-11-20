@@ -7,7 +7,6 @@ Hw08
 |5.4 Controlling PWM freq | Driving P9_28, P9_29, P9_30 and P9_31.  There is jitter in all the signals |  |
 |5.9 Reading input at regular intervals | using the cursors i measured a delay of 53.6ns |  |
 
-Paul Wilda
 
 ## Prof. Yoder's comments
 
