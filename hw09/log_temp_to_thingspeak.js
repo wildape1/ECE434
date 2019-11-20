@@ -5,11 +5,9 @@ const fs      = require('fs');
 const ms = 5000;               // Repeat time
 const mqtt = require('mqtt');
 const client = mqtt.connect('mqtt://mqtt.thingspeak.com');
-
 const bus = 2;
 const tmp101 = [0x48];
 const sensor = i2c.openSync(bus);
-
 const filename = "/home/debian/exercises/iot/thingspeak/keys_office.json";
 const keys = JSON.parse(fs.readFileSync(filename));
 const url = "channels/" + keys.channel_id + "/publish/" + keys.write_key;
